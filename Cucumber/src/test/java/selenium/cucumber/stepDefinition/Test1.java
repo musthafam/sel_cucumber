@@ -1,7 +1,10 @@
 package selenium.cucumber.stepDefinition;
 
+import junit.framework.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.PendingException;
@@ -19,6 +22,7 @@ public class Test1 {
 	String Loginid="user_login";
 	String passwordid ="user_pass";
 	String login_button="wp-submit";
+	String profilepage="profile-page";
 	
 
 	@Given("^User has launched Test URL$")
@@ -27,22 +31,25 @@ public class Test1 {
 		driver = new ChromeDriver();
 		driver.get(URL);
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    //throw new PendingException();
 	}
 
 	@When("^Enters valid username and password and clicks on Login$")
 	public void enters_valid_username_and_password_and_clicks_on_Login() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Loginid)).sendKeys(Login);
 		driver.findElement(By.id(passwordid)).sendKeys(Password);
 		driver.findElement(By.id(login_button)).click();
-	    throw new PendingException();
+	    //throw new PendingException();
 	}
 
 	@Then("^User should get the home screen$")
 	public void user_should_get_the_home_screen() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    //throw new PendingException();
+		Boolean Expec = driver.findElement(By.id("profile-page")).isDisplayed();
+		Assert.assertTrue(Expec);
+		
 	}
 }
