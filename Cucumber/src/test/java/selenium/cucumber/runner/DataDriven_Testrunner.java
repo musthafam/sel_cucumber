@@ -8,10 +8,10 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="src/test/resources/Features/app.feature",
+		features="src/test/resources/Features/DataDriven.feature",
 		glue={"selenium.cucumber.stepDefinition"},
 		plugin={"html:target/cucumber-html-report"}
 		)
-public class Testrunner {
+public class DataDriven_Testrunner {
 
 }
