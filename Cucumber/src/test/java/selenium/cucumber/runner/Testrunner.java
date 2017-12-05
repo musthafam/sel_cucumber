@@ -10,7 +10,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features="src/test/resources/Features/app.feature",
 		glue={"selenium.cucumber.stepDefinition"},
-		plugin={"html:target/cucumber-html-report"}
+		plugin={"html:target/cucumber-html-report"},
+		tags={"@tagTest2"}
 		)
 public class Testrunner {
 

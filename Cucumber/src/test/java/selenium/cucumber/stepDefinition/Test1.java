@@ -4,15 +4,16 @@ import junit.framework.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Test1 {
+
+public class Test1{
 	
 	String URL = "http://store.demoqa.com/wp-login.php";
 	String Login = "zmmm";
@@ -24,15 +25,22 @@ public class Test1 {
 	String login_button="wp-submit";
 	String profilepage="profile-page";
 	
-	public void setupBrowser()
-	{
+		
+	@Before
+    public void beforeScenario(){
 		System.setProperty("webdriver.chrome.driver",exePath);
 		driver = new ChromeDriver();
-	}
+        
+    }
+	
+	@After
+    public void afterScenario(){
+        driver.quit();
+        
+    }
 
 	@Given("^User has launched Test URL$")
 	public void user_has_launched_Test_URL() throws Throwable {
-		setupBrowser();
 		driver.get(URL);
 	    
 	}
@@ -61,7 +69,6 @@ public class Test1 {
 	
 	@Given("^User has launched Test URL in Chrome$")
 	public void user_has_launched_Test_URL_in_Chrome() throws Throwable {
-		setupBrowser();
 		driver.get(URL);
 	}
 
