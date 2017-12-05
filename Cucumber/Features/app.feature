@@ -25,6 +25,11 @@ Feature: Sample Project
     When Enters valid username and password and clicks on Login
     Then User should get the home screen
     
+  Scenario: Second Test case - Parameter without Example
+    Given User has launched Test URL in Chrome
+    When Enters valid "zmmm" and "Ambattur123" and clicks on Login
+    Then User should get the home screen successfully 
+    
 
   #@tag2
   #Scenario Outline: Title of your scenario outline
